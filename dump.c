@@ -62,7 +62,7 @@ SPA_FUN(xit) {exit(0);}
 
 SPA_DECLARE(arguments)
      SPA_STRING("file", "name of file to dump, if not present take from stdin",
-	      file, NULL, NULL)
+          file, NULL, NULL)
      SPA_FUNCTION("", "extra argument", paramError)
 SPA_END
 
@@ -70,11 +70,11 @@ SPA_DECLARE(options)
      SPA_HELP("help", "this help", usage, xit)
      SPA_INTEGER("size", "size of words in bytes (1, 2 or 4)", wSize, 4, NULL)
      SPA_FLAG("addressing", "word addressing instead of byte addresses",
-	      wordAddressing, FALSE, NULL)
+          wordAddressing, FALSE, NULL)
      SPA_INTEGER("words", "number of words to display per line", nWords, 4, NULL)
      SPA_FLAG("hex", "dump in hexadecimal (default)", hex, FALSE, NULL)
-     SPA_FLAG("oct", "dump in octal (NIY)", oct, FALSE, NULL)
-     SPA_FLAG("dec", "dump in decimal (NIY)", dec, FALSE, NULL)
+     SPA_FLAG("oct", "dump in octal (NYI)", oct, FALSE, NULL)
+     SPA_FLAG("dec", "dump in decimal (NYI)", dec, FALSE, NULL)
      SPA_FLAG("long", "dump long words, same as -size 4 -addressing", longWords, FALSE, NULL)
      SPA_FLAG("word", "dump words, same as -size 2 -addressing", shortWords, FALSE, NULL)
      SPA_FLAG("byte", "dump bytes, same as -size 1", byteWords, FALSE, NULL)
@@ -114,7 +114,7 @@ static printLong(l)
   printHex((l>>0)&0x0f);
 }
 
-  
+
 int main(argc, argv)
      int argc;			/* IN - Argument count */
      char **argv;		/* IN - Arguments */
@@ -163,14 +163,14 @@ int main(argc, argv)
     for (out = 0; out < in; out++) {
       printByte(buffer[out]);
       if (out%wSize == wSize-1)
-	printf(" ");
+    printf(" ");
     }
     printf("    ");
     for (out = 0; out < in; out++) {
       if (ISPRINT(buffer[out]))
-	printf("%c", buffer[out]);
+    printf("%c", buffer[out]);
       else
-	printf(".");
+    printf(".");
     }
     printf("\n");
     if (wordAddressing)
