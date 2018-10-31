@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
-
+#include <stdlib.h>
 
 #define ISPRINT(c) ((c>=0x20 && c<0x7f) || (c>0xa0 && c<0xff))
 
